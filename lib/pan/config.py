@@ -183,6 +183,14 @@ class PanConfig:
                     obj[tag] = text
                 return
 
+             if tag in obj:
+                myCounter=0
+                if 'originalTag' not in locals():
+                    originalTag = tag
+                while tag in obj:
+                    myCounter+=1
+                    tag = f"{originalTag}{myCounter}"
+            
             obj[tag] = {}
             o = obj[tag]
 
